@@ -1,0 +1,28 @@
+specVersion: "3.0"
+metadata:
+  name: zplugin_hd
+type: application
+framework:
+  name: SAPUI5
+  version: "1.116.0"
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.ushell
+    - name: themelib_sap_horizon
+resources:
+  configuration:
+    propertiesFileSourceEncoding: UTF-8
+builder:
+  resources:
+    excludes:
+      - "/test/**"
+      - "/test-resources/**"
+server:
+  customMiddleware:
+    # Live reload
+    - name: ui5-middleware-livereload
+      afterMiddleware: compression
+      configuration:
+        debug: false
+        watchPath: "webapp"

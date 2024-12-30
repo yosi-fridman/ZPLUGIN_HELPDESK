@@ -1,0 +1,28 @@
+{
+	"name": "zplugin_hd",
+	"version": "1.0.0",
+	"description": "PM Maintenance Task List",
+	"author": "sap_yosif@iroads.co.il",
+	"license": "Apache-2.0",
+	"scripts": {
+		"start": "ui5 serve --config=ui5.yaml --open test/flpSandbox.html?sap-language=HE",
+		"deploy": "ui5 build --config=ui5_deploy.yaml --clean-dest --a  --include-task=generateManifestBundle generateCachebusterInfo",
+		"lint": "eslint webapp"
+	},
+	"devDependencies": {
+		"@ui5/cli": "^4.0.12",
+		"eslint": "^9.9.0",
+		"ui5-middleware-livereload": "^3.0.3",
+		"ui5-middleware-route": "^1.0.4",
+		"ui5-middleware-route-proxy": "^1.0.10",
+		"ui5-task-nwabap-deployer": "^2.1.1"
+	},
+	"ui5": {
+		"dependencies": [
+			"ui5-task-nwabap-deployer",
+			"ui5-middleware-route",
+			"ui5-middleware-route-proxy",
+			"ui5-middleware-livereload"
+		]
+	}
+}

@@ -1,0 +1,32 @@
+specVersion: '1.0'
+metadata:
+  name: zplugin_hd
+type: application
+resources:
+  configuration:
+    propertiesFileSourceEncoding: UTF-8
+builder:
+  resources:
+      excludes:
+      - "/test/**"
+      - "/test-resources/**"
+  customTasks:
+    - name: ui5-task-nwabap-deployer
+      afterTask: generateCachebusterInfo
+      configuration:
+        resources:
+          path: dist
+          pattern: "**/*.*"
+        connection:
+          server: http://xxxxxx:8000
+        authentication:
+          user: xxx
+          password: xxx
+        ui5:
+          language: EN
+          package: ZSAPUI5
+          bspContainer: zplugin_hd
+          bspContainerText: zplugin_hd
+          transportUseLocked: true
+          transportNo: xxxxxx
+          calculateApplicationIndex: true
